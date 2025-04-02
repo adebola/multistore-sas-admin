@@ -21,7 +21,6 @@ export class TokenInterceptorService implements HttpInterceptor {
         const refreshToken = localStorage.getItem('refresh_token');
 
         if (accessToken) {
-            console.log('TokenInterceptorService: intercept: accessToken: ' + accessToken);
             req = req.clone({
                 setHeaders: {Authorization: `Bearer ${accessToken}`, 'X-TenantID': environment.storeId},
             });

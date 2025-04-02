@@ -48,7 +48,7 @@ export class RoleService {
         return this.http.post<AuthorityModel>(AUTHORITY_URL, role);
     }
 
-    updateRole(role: Partial<AuthorityModel>): Observable<AuthorityModel> {
-        return this.http.put<AuthorityModel>(`${AUTHORITY_URL}/${role.id}`, role);
+    updateRole(id: string,  role: Partial<AuthorityModel>): Observable<AuthorityModel> {
+        return this.http.put<AuthorityModel>(`${AUTHORITY_URL}/${id}`, role);
     }
 }

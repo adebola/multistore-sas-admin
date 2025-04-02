@@ -1,6 +1,9 @@
 export interface AuthorityModel {
     id: string;
     authority: string;
+    createdAt: Date;
+    createdBy: string;
+    description: string;
 }
 
 export interface UserModel {

@@ -25,7 +25,6 @@ import { ERefundsComponent } from './pages/ecommerce-page/e-refunds/e-refunds.co
 import { ECreateSellerComponent } from './pages/ecommerce-page/e-create-seller/e-create-seller.component';
 import { ESellerDetailsComponent } from './pages/ecommerce-page/e-seller-details/e-seller-details.component';
 import { ESellersComponent } from './pages/ecommerce-page/e-sellers/e-sellers.component';
-import { ECustomerDetailsComponent } from './pages/ecommerce-page/e-customer-details/e-customer-details.component';
 import { EOrderDetailsComponent } from './pages/ecommerce-page/e-order-details/e-order-details.component';
 import { EOrdersComponent } from './pages/ecommerce-page/e-orders/e-orders.component';
 import { EEditProductComponent } from './pages/ecommerce-page/e-edit-product/e-edit-product.component';
@@ -38,6 +37,9 @@ import {AuthGuard} from "./authentication/auth-guard.service";
 import {TenantsPageComponent} from "./pages/tenants-page/tenants-page.component";
 import {TenantsListComponent} from "./pages/tenants-page/tenants-list/tenants-list.component";
 import {EditTenantComponent} from "./pages/tenants-page/edit-tenant/edit-tenant.component";
+import {RolesListComponent} from "./pages/roles-page/roles-list/roles-list.component";
+import {RolesPageComponent} from "./pages/roles-page/roles.page.component";
+import {EditRoleComponent} from "./pages/roles-page/edit-role/edit-role.component";
 
 export const routes: Routes = [
     {path: '', component: EcommerceComponent, canActivate: [AuthGuard]},
@@ -95,6 +97,16 @@ export const routes: Routes = [
             {path: '', component: UsersListComponent},
             {path: 'edit/:id', component: EditUserComponent},
 
+        ]
+    },
+    {
+        path: 'roles',
+        canActivate: [AuthGuard],
+        component: RolesPageComponent,
+        children: [
+            {path: '', component: RolesListComponent},
+            {path: 'new', component: EditRoleComponent},
+            {path: 'edit/:id', component: EditRoleComponent},
         ]
     },
     {

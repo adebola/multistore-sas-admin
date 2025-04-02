@@ -82,8 +82,8 @@ export class EditUserComponent implements OnInit, OnDestroy {
         this.subscription = this.userService.getUserById(this.id).subscribe(u => {
             this.userSubject.next(u);
 
-            // Get All Roles
-            this.roleService.getAllRoles().pipe(
+            // Get All Tenant Roles
+            this.roleService.getTenantRoles().pipe(
                 takeUntilDestroyed(this.destroyRef)
             ).subscribe(r => {
                 this.allRoles = r.content;

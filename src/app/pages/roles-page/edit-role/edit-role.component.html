@@ -1,0 +1,128 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+    <h5 class="mb-0" *ngIf="id else newRole2">
+        Edit Role
+    </h5>
+    <ng-template #newRole2>
+        <h5 class="mb-0">
+            New Role
+        </h5>
+    </ng-template>
+    <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
+        <li class="breadcrumb-item position-relative">
+            <a routerLink="/" class="d-inline-block position-relative">
+                <i class="ri-home-8-line"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="breadcrumb-item position-relative">
+            Roles
+        </li>
+        <li class="breadcrumb-item position-relative" *ngIf="id else newRole1">
+            Edit Role
+        </li>
+        <ng-template #newRole1>
+            <li class="breadcrumb-item position-relative">
+                New Role
+            </li>
+        </ng-template>
+    </ol>
+</div>
+
+<ng-container *ngIf="(loading$ | async) as loading">
+    <div *ngIf="loading" class="loader flex-content-center" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <mat-progress-spinner
+                color="primary"
+                mode="indeterminate">
+        </mat-progress-spinner>
+    </div>
+</ng-container>
+
+<!-- Add Tenant -->
+<div class="row">
+    <div class="col-12">
+        <mat-card
+                class="daxa-card add-user-card mb-25 border-radius bg-white border-none d-block"
+                [class.rtl-enabled]="themeService.isRTLEnabled()"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mb-0" *ngIf="id">
+                        Edit Tenant
+                    </h5>
+
+                    <h5 class="mb-0" *ngIf="!id">
+                        New Tenant
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <form [formGroup]="roleForm" (ngSubmit)="onSubmit(roleForm)" *ngIf="roleForm">
+                    <div class="row">
+                        <div class="col-sm-6" *ngIf="id">
+                            <div class="mb-25">
+                                <label class="main-label d-block lh-1 text-black">
+                                    Role ID
+                                </label>
+                                <mat-form-field>
+                                    <mat-label>
+                                        Role ID
+                                    </mat-label>
+                                    <input matInput formControlName="id" id="id" readonly>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-25">
+                                <label class="main-label d-block lh-1 text-black">
+                                    Role Name
+                                </label>
+                                <mat-form-field>
+                                    <mat-label>
+                                        Role name
+                                    </mat-label>
+                                    <input matInput formControlName="authority" id="authority">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="mb-25">
+                                <label class="main-label d-block lh-1 text-black">
+                                    Description
+                                </label>
+                                <mat-form-field class="textarea">
+                                    <mat-label>
+                                        Write your description
+                                    </mat-label>
+                                    <textarea matInput placeholder="E.g. Role description..."
+                                              formControlName="description" id="description"></textarea>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-6" *ngIf="id">
+                            <div class="mb-0">
+                                <!--                            <mat-form-field>-->
+                                <mat-checkbox formControlName="disabled" id="disabled">Suspend</mat-checkbox>
+                                <!--                            </mat-form-field>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-box" style="margin-top: 10px">
+                        <button mat-button type="submit" *ngIf="!id">
+                            Save Role
+                        </button>
+                        <button mat-button type="submit" *ngIf="id">
+                            Update Role
+                        </button>
+                        <button mat-button type="button" (click)="goBack()">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
