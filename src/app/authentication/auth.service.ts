@@ -16,8 +16,7 @@ export class AuthService {
     private scope = environment.scope;
     private storeId = environment.storeId;
 
-    constructor(private http: HttpClient, private router: Router) {
-    }
+    constructor(private http: HttpClient, private router: Router) {}
 
     login() {
         const params = new HttpParams()

@@ -30,7 +30,8 @@
 </div>
 
 <ng-container *ngIf="(loading$ | async) as loading">
-    <div *ngIf="loading" class="loader flex-content-center" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div *ngIf="loading" class="loader flex-content-center"
+         style="display: flex; justify-content: center; align-items: center; height: 100vh;">
         <mat-progress-spinner
                 color="primary"
                 mode="indeterminate">
@@ -161,6 +162,24 @@
                     </div>
                 </form>
             </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="row">
+        <mat-card
+                class="daxa-card add-user-card mb-25 border-radius bg-white border-none d-block"
+                [class.rtl-enabled]="themeService.isRTLEnabled()"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mb-0" *ngIf="id">
+                        Tenant Details
+                    </h5>
+
+                    <h5 class="mb-0" *ngIf="!id">
+                        Tenant Details
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
         </mat-card>
     </div>
 </div>

@@ -1,10 +1,12 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
+/* To learn more about this file, see: https://angular.io/config/tsconfig. */
 {
     "compileOnSave": false,
     "compilerOptions": {
         "outDir": "./dist/out-tsc",
         "strict": true,
+        "strictNullChecks": true,
         "noImplicitOverride": true,
+        "noImplicitThis": true,
         "noPropertyAccessFromIndexSignature": true,
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
@@ -22,7 +24,7 @@
         "lib": [
             "ES2022",
             "dom"
-        ]
+        ],
     },
     "angularCompilerOptions": {
         "enableI18nLegacyMessageIdFormat": false,

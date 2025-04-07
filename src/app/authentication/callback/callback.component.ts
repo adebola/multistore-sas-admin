@@ -9,8 +9,7 @@ import {AuthService} from "../auth.service";
     styleUrls: ['./callback.component.scss']
 })
 export class CallbackComponent implements OnInit {
-    constructor(private authService: AuthService, private router: Router) {
-    }
+    constructor(private authService: AuthService, private router: Router) {}
 
     ngOnInit() {
         const urlParams = new URLSearchParams(window.location.search);

@@ -51,6 +51,10 @@ export class UserService {
         return this.http.get<UserModel>(`${USER_URL}/${id}`);
     }
 
+    getSelf(): Observable<UserModel> {
+        return this.http.get<UserModel>(`${USER_URL}/self`);
+    }
+
     addRolesToUser(id: string, roles: string[]): Observable<any> {
         return this.http.put(`${USER_URL}/${id}/addrole`, {
             roles: roles
